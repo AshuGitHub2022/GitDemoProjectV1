@@ -1,2 +1,44 @@
-My Name is Ashutosh Shivam
-This is my First github Repository
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class TestSeleniumJava {
+	
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ashus\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		Thread.sleep(5000);
+
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//*[@id=\'pageFooter\']/ul/li[6]/a")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//a[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")).click();
+		Thread.sleep(5000);
+
+		Select sl1 = new Select(driver.findElement(By.xpath("//select[@id='day']")));
+
+		sl1.selectByValue("6");
+
+		Thread.sleep(2000);
+
+		Select sl2 = new Select(driver.findElement(By.xpath("//select[@id='month']")));
+
+		sl2.selectByValue("5");
+
+		Thread.sleep(2000);
+
+		Select sl3 = new Select(driver.findElement(By.xpath("//select[@id='year']")));
+
+		sl3.selectByValue("1989");
+
+		driver.close();
+
+
+
+
+			}
+
+}
